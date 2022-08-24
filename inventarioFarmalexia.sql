@@ -3,6 +3,7 @@
 --base de datos
 
 --hola david ggggg
+---segundo commit
 DROP DATABASE IF EXISTS farmalexia;
 CREATE DATABASE IF NOT EXISTS farmalexia;
 USE farmalexia;
