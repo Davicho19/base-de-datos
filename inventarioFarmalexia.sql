@@ -2,7 +2,7 @@
 
 --base de datos
 
-
+--hola david ggggg
 DROP DATABASE IF EXISTS farmalexia;
 CREATE DATABASE IF NOT EXISTS farmalexia;
 USE farmalexia;
