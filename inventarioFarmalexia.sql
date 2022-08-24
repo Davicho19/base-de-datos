@@ -59,11 +59,11 @@ nombreProveedor VARCHAR(25)
 
 
 CREATE TABLE identidad(
-idIdentidad INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+idIdentidad INT AUTO_INCREMENT PRIMARY KEY,
 contrasenha VARCHAR(25) UNIQUE NOT NULL,
 activo bool NOT NULL,
-idpersona INT NOT NULL
-idrol INT NOT,
+idpersona INT NOT NULL,
+idrol INT NOT NULL,
 FOREIGN KEY(idpersona) REFERENCES persona(idpersona) ON UPDATE CASCADE ON DELETE CASCADE,
 FOREIGN KEY(idrol) REFERENCES rol(idrol) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
@@ -72,7 +72,7 @@ FOREIGN KEY(idrol) REFERENCES rol(idrol) ON UPDATE CASCADE ON DELETE CASCADE
 
 --tablas relacionales
 CREATE TABLE registroFarmaco(
-idRegistro INT AUTO_INCREMENT PRIMARY KEY NOT null,
+idRegistro INT AUTO_INCREMENT PRIMARY KEY,
 fechaRegistro DATETIME,
 cantidadRegistrada INT NOT null,
 fechaVencimiento DATE NOT NULL,
