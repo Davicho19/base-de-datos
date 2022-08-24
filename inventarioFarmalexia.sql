@@ -62,26 +62,11 @@ CREATE TABLE identidad(
 idIdentidad INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 contrasenha VARCHAR(25) UNIQUE NOT NULL,
 activo bool NOT NULL,
+idpersona INT NOT NULL
+idrol INT NOT,
 FOREIGN KEY(idpersona) REFERENCES persona(idpersona) ON UPDATE CASCADE ON DELETE CASCADE,
 FOREIGN KEY(idrol) REFERENCES rol(idrol) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
-
-
-CREATE TABLE sucursal(
-idSucursal INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-idEmpresa INT NOT NULL,
-idCiudad INT NOT NULL,
-idZona INT NOT NULL,
-nombre VARCHAR (25) NOT NULL,
-direccion VARCHAR (80) NOT NULL,
-nit VARCHAR (15) NOT NULL,
-numeroAutorizacion VARCHAR (15) NOT NULL,
-activo bool not null,
-FOREIGN KEY(idEmpresa) REFERENCES empresa(idEmpresa) ON UPDATE CASCADE ON DELETE CASCADE,
-FOREIGN KEY(idCiudad) REFERENCES ciudad(idCiudad) ON UPDATE CASCADE ON DELETE CASCADE,
-FOREIGN KEY(idZona) REFERENCES zona(idZona) ON UPDATE CASCADE ON DELETE CASCADE
-)ENGINE=InnoDB;
-
 
 
 
@@ -91,6 +76,8 @@ idRegistro INT AUTO_INCREMENT PRIMARY KEY NOT null,
 fechaRegistro DATETIME,
 cantidadRegistrada INT NOT null,
 fechaVencimiento DATE NOT NULL,
+idMedicamento INT NOT NULL,
+idprovedor INT NOT NULL,
 FOREIGN KEY(idMedicamento) REFERENCES medicamentos(idMedicamento) ON UPDATE CASCADE ON DELETE CASCADE,
 FOREIGN KEY(idprovedor) REFERENCES proveedores(idprovedor) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
@@ -99,6 +86,8 @@ CREATE TABLE salidaMedicamentos(
 idSalidaMedicamentos INT AUTO_INCREMENT PRIMARY KEY NOT null,
 fechaHoraVenta DATETIME NOT null,
 cantidaSalidaMendicamentos INT NOT NULL,
+idRegistro INT NOT NULL,
+ididentidad INT NOT NULL,
 FOREIGN KEY(idRegistro) REFERENCES registroFarmaco(idRegistro) ON UPDATE CASCADE ON DELETE CASCADE,
 FOREIGN KEY(ididentidad) REFERENCES identidad(ididentidad) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
