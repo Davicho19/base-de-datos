@@ -60,7 +60,7 @@ idRegistroCliente INT AUTO_INCREMENT PRIMARY KEY,
 idcliente INT NULL,
 idRolCliente INT NULL, 
 FOREIGN KEY(idcliente) REFERENCES cliente(idcliente) ON UPDATE CASCADE ON DELETE CASCADE,
-FOREIGN KEY(idRolCliente) REFERENCES rolCliente(idcliente) ON UPDATE CASCADE ON DELETE CASCADE
+FOREIGN KEY(idRolCliente) REFERENCES rolCliente(idRolCliente) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
 
 
@@ -99,7 +99,7 @@ idRegistro INT NOT NULL,
 ididentidad INT NOT NULL,
 idRegistroCliente INT NULL,
 FOREIGN KEY(idRegistro) REFERENCES registroFarmaco(idRegistro) ON UPDATE CASCADE ON DELETE CASCADE,
-FOREIGN KEY(ididentidad) REFERENCES identidad(ididentidad) ON UPDATE CASCADE ON DELETE CASCADE
+FOREIGN KEY(ididentidad) REFERENCES identidad(ididentidad) ON UPDATE CASCADE ON DELETE CASCADE,
 FOREIGN KEY(idRegistroCliente) REFERENCES registroCliente(idRegistroCliente) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
 
