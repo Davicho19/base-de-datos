@@ -34,11 +34,12 @@ FOREIGN KEY(idrol) REFERENCES rol(idrol) ON UPDATE CASCADE ON DELETE CASCADE
 
 CREATE TABLE cliente(
 idcliente INT PRIMARY KEY NULL,
+ciCliente INT NOT NULL,
 primerNombre VARCHAR(25) NULL,
 seguntoNombre VARCHAR(25) NULL,
 apellidoPaterno VARCHAR(25) NULL,
 apellidoMaterno VARCHAR(25) NULL,
-nit INT
+nit INT NOT null
 )ENGINE=InnoDB;
 
 
@@ -98,11 +99,13 @@ idVentaMedicamento INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 fechaHoraVenta DATETIME NOT null,
 cantidadVendida INT NOT NULL,
 idRegistroMedicamento INT NOT NULL,
-ididentidad INT NOT NULL,
+idIdentidad INT NOT NULL,
 idRegistroCliente INT NULL,
+idcliente INT NOT NULL,
 FOREIGN KEY(idRegistroMedicamento) REFERENCES registroFarmaco(idRegistroMedicamento) ON UPDATE CASCADE ON DELETE CASCADE,
-FOREIGN KEY(ididentidad) REFERENCES identidad(ididentidad) ON UPDATE CASCADE ON DELETE CASCADE,
-FOREIGN KEY(idRegistroCliente) REFERENCES registroMiembroClinica(idRegistroCliente) ON UPDATE CASCADE ON DELETE CASCADE
+FOREIGN KEY(idIdentidad) REFERENCES identidad(idIdentidad) ON UPDATE CASCADE ON DELETE CASCADE,
+FOREIGN KEY(idRegistroCliente) REFERENCES registroMiembroClinica(idRegistroCliente) ON UPDATE CASCADE ON DELETE CASCADE,
+FOREIGN KEY(idcliente) REFERENCES cliente(idcliente) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
 
 
