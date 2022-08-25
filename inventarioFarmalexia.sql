@@ -118,3 +118,13 @@ FOREIGN KEY(idIdentidad) REFERENCES identidad(idIdentidad) ON UPDATE CASCADE ON 
 )ENGINE=InnoDB;
 
 
+CREATE TABLE stock(
+idstock INT PRIMARY KEY NOT NULL,
+idRegistroMedicamento INT NOT NULL,
+idConsumoInterno INT NOT NULL,
+idVentaMedicamento INT NOT NULL,
+cantidadStock INT NOT NULL,
+FOREIGN KEY(idRegistroMedicamento) REFERENCES registroFarmaco(idRegistroMedicamento) ON UPDATE CASCADE ON DELETE CASCADE,
+FOREIGN KEY(idConsumoInterno) REFERENCES consumoInterno(idConsumoInterno) ON UPDATE CASCADE ON DELETE CASCADE,
+FOREIGN KEY(idVentaMedicamento) REFERENCES ventaMedicamento(idVentaMedicamento) ON UPDATE CASCADE ON DELETE CASCADE
+)ENGINE=InnoDB;
