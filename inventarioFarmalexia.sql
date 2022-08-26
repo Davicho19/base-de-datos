@@ -5,7 +5,7 @@ USE farmalexia;
 
 CREATE TABLE usuario(
 idusuario INT PRIMARY KEY,
-ci INT NOT NULL UNIQUE,
+ciUsuario INT NOT NULL UNIQUE,
 primerNombre VARCHAR(25) NOT NULL,
 seguntoNombre VARCHAR(25) NULL,
 apellidoPaterno VARCHAR(25) NOT NULL, 
@@ -99,11 +99,9 @@ idVentaMedicamento INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 fechaHoraVenta DATETIME NOT null,
 cantidadVendida INT NOT NULL,
 idRegistroMedicamento INT NOT NULL,
-idIdentidad INT NOT NULL,
 idRegistroCliente INT NULL,
 idcliente INT NOT NULL,
 FOREIGN KEY(idRegistroMedicamento) REFERENCES registroFarmaco(idRegistroMedicamento) ON UPDATE CASCADE ON DELETE CASCADE,
-FOREIGN KEY(idIdentidad) REFERENCES identidad(idIdentidad) ON UPDATE CASCADE ON DELETE CASCADE,
 FOREIGN KEY(idRegistroCliente) REFERENCES registroMiembroClinica(idRegistroCliente) ON UPDATE CASCADE ON DELETE CASCADE,
 FOREIGN KEY(idcliente) REFERENCES cliente(idcliente) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
@@ -114,10 +112,8 @@ idConsumoInterno INT AUTO_INCREMENT PRIMARY KEY,
 cantidadConsumoInterno INT NOT NULL,
 idRegistroMedicamento INT NOT NULL,
 idRolMiembroClinica INT NOT NULL,
-idIdentidad INT NOT NULL,
 FOREIGN KEY(idRegistroMedicamento) REFERENCES registroFarmaco(idRegistroMedicamento) ON UPDATE CASCADE ON DELETE CASCADE,
-FOREIGN KEY(idRolMiembroClinica) REFERENCES rolMiembroClinica(idRolMiembroClinica) ON UPDATE CASCADE ON DELETE CASCADE,
-FOREIGN KEY(idIdentidad) REFERENCES identidad(idIdentidad) ON UPDATE CASCADE ON DELETE CASCADE
+FOREIGN KEY(idRolMiembroClinica) REFERENCES rolMiembroClinica(idRolMiembroClinica) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
 
 
